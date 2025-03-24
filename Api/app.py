@@ -13,19 +13,16 @@ app = Flask(__name__)
 
 CORS(app, resources={
     r"/check": {
-        "origins": "*",  # Tüm alan adlarından gelen isteklere izin verir
-        "methods": ["POST","OPTIONS"],  # İzin verilen HTTP metodları
-        "allow_headers": ["Content-Type", "Authorization","key"] # İzin verilen başlıklar
+        "origins": "*", 
+        "methods": ["POST","OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization","key"]
     },
     r"/gl-key": {
-        "origins": "*",  # Tüm alan adlarından gelen isteklere izin verir
-        "methods": ["POST","OPTIONS"],  # İzin verilen HTTP metodları
-        "allow_headers": ["Content-Type", "Authorization","key","L_key"] # İzin verilen başlıklar
+        "origins": "*", 
+        "methods": ["POST","OPTIONS"],  
+        "allow_headers": ["Content-Type", "Authorization","key","L_key"] 
     }
 })
-
-
-# This infos are only for development purposes. In production, use environment variables.
 
 
 @app.route('/', methods=['GET'])
@@ -40,7 +37,6 @@ def admin():
         print(request.headers)
         jsoned = request.get_json()
         key = request.headers.get('key')
-        #Only For Paid Users
         if key != "":
             returnValue = pull_LicenceKey(request.headers.get('key'))
             print("returnValue: ",returnValue)
@@ -64,7 +60,6 @@ def admin():
 def generate_license():
     if request.method == 'POST':
         connectdb()
-        # json = request.get_json()
         jsoned = request.get_json()
         if jsoned['key'] == "":
             print(jsoned['L_key'])
