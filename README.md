@@ -4,7 +4,7 @@
 
 ## Proje Yapısı
 
-Bu proje, https://www.flexifytr.store/ sitesinden kullanıcıların sahip olduğu lisans anahtarlarını kullanarak, belirtilen sitelerden veri çekip işleyen ve bu verileri kendi veritabanımıza kaydeden bir API uygulamasıdır. VDS sunucusunda çalışan bu API, veri çekme, işleme ve veritabanı güncellemelerini 7/24 gerçekleştirecek şekilde tasarlanmıştır.
+Bu proje, https://www.flexifytr.store/ sitesinden kullanıcıların sahip olduğu lisans anahtarlarını kullanarak, belirtilen sitelerden veri çekip işleyen ve bu verileri kendi veritabanımıza kaydeden bir uygulamadır. VDS sunucusunda çalışan bu API, veri çekme, işleme ve veritabanı güncellemelerini 7/24 gerçekleştirecek şekilde tasarlanmıştır.
 
 ## Özellikler
 
