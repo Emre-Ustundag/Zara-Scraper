@@ -11,14 +11,14 @@ from DB_Connect import  pull_products_for_mail,delete_Size
 def send_email(product,size,mail,name,price):
     sender_email = ""
     try:
-        # Gmail SMTP sunucusuna bağlanma
+
         smtp_server = ""
         smtp_port = 587
 
         smtp_user = sender_email  # Gönderen e-posta adresi
         smtp_password = ""  # Uygulama şifresi
 
-        # E-posta mesajını oluşturma
+
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = mail
@@ -26,23 +26,20 @@ def send_email(product,size,mail,name,price):
 
         round_price = round(price,2)
         body = f"Beklediğiniz {name} ürününün {size} bedeni {round_price}TL'ye mevcuttur. \n Link:  {product} \n\n"
-        # E-posta içeriğini ekleyin
+  
         msg.attach(MIMEText(body, 'plain'))
         
     
         with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()  # Güvenli bağlantı
+            server.starttls() 
             server.login(smtp_user, smtp_password)  # Gmail hesabına giriş
-            text = msg.as_string()  # E-posta mesajını string formatına çevirme
+            text = msg.as_string()
             server.sendmail(sender_email, mail, text)  # E-posta gönderme
 
         print(f"E-posta başarıyla gönderildi: {mail}")
 
     except Exception as e:
         print(f"Bir hata oluştu: {e}")
-
-
-# connectdb()
 
 def start():
     print("Mail başladı")
@@ -55,5 +52,3 @@ def start():
             
 
     print(filtered)
-
-# close_Connection()
